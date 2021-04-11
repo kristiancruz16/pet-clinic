@@ -25,6 +25,7 @@ public class SpecialtyServiceMap extends AbstractMapService<Specialty,Long> impl
 
     @Override
     public Specialty save(Specialty object) {
+
         return super.save(object);
     }
 

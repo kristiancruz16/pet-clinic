@@ -10,10 +10,17 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "visit")
 public class Visit extends BaseEntity{
+
+    @Builder
+    public Visit(Long id, LocalDate date, String description, Pet pet) {
+        super(id);
+        this.date = date;
+        this.description = description;
+        this.pet = pet;
+    }
 
     @Column(name = "date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")

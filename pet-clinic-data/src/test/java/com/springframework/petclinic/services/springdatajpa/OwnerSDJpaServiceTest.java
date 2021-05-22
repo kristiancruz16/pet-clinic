@@ -11,9 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -98,6 +96,15 @@ class OwnerSDJpaServiceTest {
         assertEquals(LAST_NAME,smith.getLastName());
         verify(ownerRepository).findByLastName(any());
 
+    }
+
+    @Test
+    void findAllByLastNameLikeIgnoreCase()
+    {
+        when(ownerRepository.findAllByLastNameLikeIgnoreCase(any())).thenReturn(Collections.singletonList(returnOwner));
+        List<Owner> listOfOwners = ownerSDJpaService.findAllByLastNameLikeIgnoreCase("sm");
+        assertEquals(LAST_NAME,listOfOwners.get(0).getLastName());
+        verify(ownerRepository).findAllByLastNameLikeIgnoreCase(any());
     }
 
 }

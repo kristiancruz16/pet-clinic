@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,7 +30,7 @@ public class Owner extends Person{
             this.pets = pets;
         }
     }
-
+    @NotNull
     @Column(name = "address")
     private String address;
 

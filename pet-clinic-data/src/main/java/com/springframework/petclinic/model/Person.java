@@ -21,6 +21,7 @@ public class Person extends  BaseEntity{
         this.lastName = lastName;
     }
 
+
     @Column(name = "first_name")
     String firstName;
 
